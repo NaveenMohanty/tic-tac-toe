@@ -1,38 +1,74 @@
-.App {
+body {
+  /* text-align: center; */
+
+  background-color: #1c2342;
+  color: azure;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "board"
+    "btn";
+  grid-gap: 10px;
+}
+.header {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-areas:
+    "symbol"
+    "scoreBoard";
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 20px;
+}
+.board {
+  align-items: center;
+  justify-content: center;
+  display: grid;
+  grid-template-areas:
+    "box box box "
+    "box box box"
+    "box box box";
 }
 
-.App-link {
-  color: #61dafb;
+.box {
+  border: 2px solid whitesmoke;
+  height: auto;
+  width: auto;
+  padding: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.scoreBoard {
+  padding: 0px 20px;
+  border: 2px dashed brown;
+}
+
+.stitle {
+  font-style: oblique;
+}
+
+.scoreNum {
+  font-size: 45px;
+}
+
+.headTitle {
+  text-align: center;
+  text-decoration: none;
+  color: rgb(247, 36, 36);
+  padding-top: 10px;
+  margin: 0;
+}
+.symbol h1 {
+  padding-bottom: 10px;
+}
+.btn {
+  margin: 0px 10px 5px 10px;
+  padding: 10px 10px;
+  background-color: chocolate;
 }
