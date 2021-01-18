@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ImCross } from "react-icons/im";
 import { BiCircle } from "react-icons/bi";
 import { FiEdit2 } from "react-icons/fi";
+// import { localStorageGet, localStorageSet } from "./localStorage";
 
 const App = () => {
   const [isCircle, setIsCircle] = useState(false);
@@ -15,6 +16,25 @@ const App = () => {
   });
   const { circle, cross } = score;
   const [board, setBoard] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  //!It is in a development phase trying to store data in local storage
+  // useEffect(() => {
+  //   if (!localStorage.getItem("isCircle")) {
+  //     localStorageSet();
+  //   } else {
+  //     localStorageSet(isCircle, board, score);
+  //     let setData = localStorageGet();
+  //     if (setData.isCircle !== isCircle) {
+  //       setIsCircle(setData.isCircle);
+  //     }
+  //     if (setData.score !== score) {
+  //       setScore(setData.score);
+  //     }
+  //     if (setData.board !== board) {
+  //       setBoard(setData.board);
+  //     }
+  //   }
+  // }, [isCircle, board, score]);
+
   const afterWin = (i) => {
     if (board[i] === 1) {
       toast.success("O Win!", {
@@ -163,7 +183,7 @@ const App = () => {
   };
   const getIcon = (i) => {
     if (board[i] === 0) {
-      return <FiEdit2 size="50" style={{ padding: "20px" }} />;
+      return <FiEdit2 size="50" color="red" style={{ padding: "20px" }} />;
     } else if (board[i] === 1) {
       return <BiCircle color="yellow" size="50" style={{ padding: "20px" }} />;
     } else {
@@ -186,6 +206,54 @@ const App = () => {
           </h1>
         </div>
 
+        {/* <div className="scoreBoard">
+          <h1 className="stitle">Score Board</h1>
+          <h2 className="score">
+            <ImCross color="green" size="30" />
+            <span className="scoreNum">:{cross}</span>
+          </h2>
+          <h2>
+            <BiCircle color="yellow" size="30" />
+            <span className="scoreNum">:{circle}</span>
+          </h2>
+          <button onClick={() => onClickReset("board")} className="btn">
+            Reset Board
+          </button>
+          <button onClick={() => onClickReset("score")} className="btn">
+            Reset Score
+          </button>
+        </div> */}
+      </div>
+      <div className="board">
+        <div onClick={() => changeBoard(0)} className="box zero-zero">
+          {getIcon(0)}
+        </div>
+        <div onClick={() => changeBoard(1)} className="box zero-one">
+          {getIcon(1)}
+        </div>
+        <div onClick={() => changeBoard(2)} className="box zero-two">
+          {getIcon(2)}
+        </div>
+        <div onClick={() => changeBoard(3)} className="box one-zero">
+          {getIcon(3)}
+        </div>
+        <div onClick={() => changeBoard(4)} className="box one-one">
+          {getIcon(4)}
+        </div>
+        <div onClick={() => changeBoard(5)} className="box one-two">
+          {getIcon(5)}
+        </div>
+        <div onClick={() => changeBoard(6)} className="box two-zero">
+          {getIcon(6)}
+        </div>
+        <div onClick={() => changeBoard(7)} className="box two-one">
+          {getIcon(7)}
+        </div>
+        <div onClick={() => changeBoard(8)} className="box two-two">
+          {getIcon(8)}
+        </div>
+      </div>
+      <div className="header">
         <div className="scoreBoard">
           <h1 className="stitle">Score Board</h1>
           <h2 className="score">
@@ -204,35 +272,7 @@ const App = () => {
           </button>
         </div>
       </div>
-      <div className="board">
-        <div onClick={() => changeBoard(0)} className="box">
-          {getIcon(0)}
-        </div>
-        <div onClick={() => changeBoard(1)} className="box">
-          {getIcon(1)}
-        </div>
-        <div onClick={() => changeBoard(2)} className="box">
-          {getIcon(2)}
-        </div>
-        <div onClick={() => changeBoard(3)} className="box">
-          {getIcon(3)}
-        </div>
-        <div onClick={() => changeBoard(4)} className="box">
-          {getIcon(4)}
-        </div>
-        <div onClick={() => changeBoard(5)} className="box">
-          {getIcon(5)}
-        </div>
-        <div onClick={() => changeBoard(6)} className="box">
-          {getIcon(6)}
-        </div>
-        <div onClick={() => changeBoard(7)} className="box">
-          {getIcon(7)}
-        </div>
-        <div onClick={() => changeBoard(8)} className="box">
-          {getIcon(8)}
-        </div>
-      </div>
+
       <ToastContainer />
     </div>
   );
