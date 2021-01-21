@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ImCross } from "react-icons/im";
 import { BiCircle } from "react-icons/bi";
 import { FiEdit2 } from "react-icons/fi";
-// import { localStorageGet, localStorageSet } from "./localStorage";
+import { localStorageGet, localStorageSet } from "./localStorage";
 
 const App = () => {
   const [isCircle, setIsCircle] = useState(false);
@@ -16,24 +16,18 @@ const App = () => {
   });
   const { circle, cross } = score;
   const [board, setBoard] = useState([0, 0, 0, 0, 0, 0, 0, 0, 0]);
-  //!It is in a development phase trying to store data in local storage
-  // useEffect(() => {
-  //   if (!localStorage.getItem("isCircle")) {
-  //     localStorageSet();
-  //   } else {
-  //     localStorageSet(isCircle, board, score);
-  //     let setData = localStorageGet();
-  //     if (setData.isCircle !== isCircle) {
-  //       setIsCircle(setData.isCircle);
-  //     }
-  //     if (setData.score !== score) {
-  //       setScore(setData.score);
-  //     }
-  //     if (setData.board !== board) {
-  //       setBoard(setData.board);
-  //     }
-  //   }
-  // }, [isCircle, board, score]);
+
+  useEffect(() => {
+    if (localStorage.getItem("tictactoe")) {
+      let data = localStorageGet();
+      setBoard(data.board);
+      setIsCircle(data.isCircle);
+      setScore(data.score);
+    }
+  }, []);
+  useEffect(() => {
+    localStorageSet({ isCircle, board, score });
+  }, [isCircle, board, score]);
 
   const afterWin = (i) => {
     if (board[i] === 1) {
