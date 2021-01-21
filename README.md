@@ -1,9 +1,10 @@
 # Two Player Tic Tac Toe game Chrome Extention.
 
 This is a two player Tic Tac Toe based Chrome Extention.
-[Link to Working project's website version](https://tic-tac-toe-two-player-game.herokuapp.com/)
-[Download zip file and add to extention](https://cutt.ly/GjGAxBH)
-[How to install Chrome extensions manually](https://www.cnet.com/how-to/how-to-install-chrome-extensions-manually/)
+>[Link to Working project's website version](https://tic-tac-toe-two-player-game.herokuapp.com/)
+>[Download zip file and add to extention](https://cutt.ly/GjGAxBH)
+>[How to install Chrome extensions manually](https://www.cnet.com/how-to/how-to-install-chrome-extensions-manually/)
+> Or download TicTacToeExtention/build file from this repo and Load this folder as Unpacked file in Extention.
 
 ### Tech Used
 
@@ -20,8 +21,8 @@ $ node start
 ```
 
 ### About
-
 > It is a offline based Tic Tac Toe game best for fun and time pass.
 
-[reactjs]: https://reactjs.org/
+[ReactJS]: https://reactjs.org/
 [node.js]: http://nodejs.org
+
